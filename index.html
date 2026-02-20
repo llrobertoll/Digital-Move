@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mapa de Ruta</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="head">
+
+        <div class="logo">
+            <a href="index.html"> <img src="Logo.png" height="65" width="100%" alt="Logo"></a>
+        </div>
+        <nav class="navbar">
+            <a href="Notificaciones.html"> <img src="Notificacion.png" height="50" width="100%" alt="Notificaciones"></a>
+            <a href="Avisos.html"> <img src="Avisos.png" height="50" width="100%" alt="Avisos"></a>
+        </nav>
+    </div>
+
+    
+
+
+</header>
+<div id="map"></div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  const map = L.map('map').setView([25.78848, -100.16110], 13);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
+
+  const marker = L.marker([25.80045, -100.13580]).addTo(map)
+    .bindPopup('Universidad')
+    .openPopup();
+
+  const marker2 = L.marker([25.78019, -100.18822]).addTo(map)
+    .bindPopup('Apodaca')
+    .openPopup();
+</script>
+
+</body>
+</html>
