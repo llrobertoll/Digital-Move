@@ -1,51 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <title>Mapa de Ruta</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
-    <link rel="stylesheet" href="estilos.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#B0BEC5">
+  <title>Digital Move</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&family=Nunito:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <header class="header">
-    <div class="head">
 
-        <div class="logo">
-            <a href="index.html"> <img src="Logo.png" height="65" width="100%" alt="Logo"></a>
+  <div class="phone-screen">
+
+    <!-- Zona gris superior -->
+    <div class="top-section">
+
+      <!-- Logo circular con bus + pin -->
+      <div class="logo-wrap">
+        <div class="logo-circle">
+
+          <img src="imagenes/logo_inicial.png" alt="DigitalMove" class="logo-img">
+
+          <!-- Pin ubicación arriba-derecha -->
+          <div class="pin-badge">
+            <svg viewBox="0 0 36 48" fill="none" width="36" height="48">
+
+             
+            </svg>
+          </div>
+
         </div>
-        <nav class="navbar">
-            <a href="Notificaciones.html"> <img src="Notificacion.png" height="50" width="100%" alt="Notificaciones"></a>
-            <a href="Avisos.html"> <img src="Avisos.png" height="50" width="100%" alt="Avisos"></a>
-        </nav>
+      </div>
+
+      <!-- Tagline -->
+      <p class="tagline">Viaja seguro, llega sin apuro</p>
+
     </div>
 
-    
+    <!-- Zona gris inferior con tarjeta -->
+    <div class="bottom-section">
+      <div class="card">
+        <p class="card-text">
+          Pulsa <strong>"Continuar"</strong> para aceptar los términos y permitir tu ubicación.
+        </p>
+         <button class="btn-continuar" onclick="window.location.href='pagina1.html'">
+            Continuar
+        </button>
+      </div>
+    </div>
 
+  </div>
 
-</header>
-<div id="map"></div>
-
-<!-- Leaflet JS -->
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script>
-  const map = L.map('map').setView([25.78848, -100.16110], 13);
-
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap'
-  }).addTo(map);
-
-  const marker = L.marker([25.80045, -100.13580]).addTo(map)
-    .bindPopup('Universidad')
-    .openPopup();
-
-  const marker2 = L.marker([25.78019, -100.18822]).addTo(map)
-    .bindPopup('Apodaca')
-    .openPopup();
-</script>
+  <script src="geolocalizacion.js"></script>
 
 </body>
 </html>

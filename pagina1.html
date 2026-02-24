@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Digital Move</title>
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="app-header">
+    <img src="imagenes/logo_inicial.png" class="logo">
+    <div class="icons">
+      <img src="imagenes/Notificacion.png">
+      <img src="imagenes/Avisos.png">
+    </div>
+  </header>
+
+  <!-- MAPA -->
+  <main class="map-container">
+    <div id="map"></div>
+  </main>
+
+  <!-- PANEL INFERIOR -->
+<section class="bottom-sheet">
+  <h3>Rutas disponibles</h3>
+
+  <div class="card">
+    <strong>Unidad 1</strong>
+    <p>Próxima parada: 15 min</p>
+    <p>Parada: Casino</p>
+    <p>Personas abordo: 28/50</p>
+    <div class="progress"><div style="width:50%"></div></div>
+  </div>
+
+  <div class="card">
+    <strong>Unidad 2</strong>
+    <p>Próxima parada: 10 min</p>
+    <p>Parada: Parque Silva</p>
+    <p>Personas abordo: 35/50</p>
+    <div class="progress"><div style="width:70%"></div></div>
+  </div>
+
+  <div class="card">
+    <strong>Unidad 3</strong>
+    <p>Próxima parada: 15 min</p>
+    <p>Parada: Centro comercial</p>
+    <p>Personas abordo: 15/50</p>
+    <div class="progress"><div style="width:30%"></div></div>
+  </div>
+
+  <!--  HORARIO DE SERVICIO -->
+  <div class="schedule">
+    <h3>Horario de servicio</h3>
+
+    <div class="schedule-box">
+      <div class="schedule-col">
+        <strong>Matutino</strong>
+        <label><input type="radio" name="horario"> 6:30 a.m</label>
+        <label><input type="radio" name="horario"> 7:00 a.m</label>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="schedule-col">
+        <strong>Vespertino</strong>
+        <label><input type="radio" name="horario"> 1:00 p.m</label>
+        <label><input type="radio" name="horario"> 2:00 p.m</label>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  const map = L.map('map').setView([25.78848, -100.16110], 13);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
+
+  const marker = L.marker([25.80045, -100.13580]).addTo(map)
+    .bindPopup('Universidad')
+    .openPopup();
+
+  const marker2 = L.marker([25.78019, -100.18822]).addTo(map)
+    .bindPopup('Apodaca')
+    .openPopup();
+</script>
+</body>
+</html>
