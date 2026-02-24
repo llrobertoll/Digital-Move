@@ -46,7 +46,7 @@ html, body {
 .map-container {
   position: fixed;
   top: 0px;        /* debajo del header */
-  bottom: 150px;    /* espacio para las tarjetas */
+  bottom: 100px;    /* espacio para las tarjetas */
   width: 100%;
 }
 
@@ -70,7 +70,7 @@ html, body {
 
 /* CARDS */
 .card {
-  background: #fff;
+  background: #e0e0e0;
   border-radius: 12px;
   padding: 12px;
   margin-bottom: 10px;
@@ -133,4 +133,24 @@ html, body {
   width: 1px;
   background: #bdbdbd;
   margin: 0 10px;
+}
+
+.icons-caoracteristicas img {
+  height: 20px;
+  margin-left: 12px;
+}
+
+/* CARACTERÍSTICAS */
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  margin-top: 2px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
 }
