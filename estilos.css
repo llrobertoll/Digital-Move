@@ -154,3 +154,28 @@ html, body {
   gap: 8px;
   font-size: 13px;
 }
+
+/* FOOTER */
+.app-footer {
+  background: #bdbdbd;
+  margin-top: 20px;
+  border-radius: 0px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.footer-logo {
+  width: 120px;
+  margin-bottom: 1px;
+}
+
+.app-footer a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  margin: 10px 20px;
+}
+
+.app-footer a:hover {
+  text-decoration: underline;
+}

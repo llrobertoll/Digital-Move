@@ -16,7 +16,7 @@
   <header class="app-header">
     <img src="imagenes/logo_inicial.png" class="logo">
     <div class="icons">
-      <img src="imagenes/Notificacion.png">
+      <img src="imagenes/Notificacion.png"onclick="abrirNotificaciones()">
       <img src="imagenes/Avisos.png">
     </div>
   </header>
@@ -80,11 +80,11 @@
 
   <div class="features-grid">
     <div class="icons-caoracteristicas">
-      <img src="imagenes/aire_acondicionado.jpg" > <h6>Aire acondicionado</h6>
+      <img src="imagenes/aire_acondicionado.png" > <h6>Aire acondicionado</h6>
     </div>
 
     <div class="icons-caoracteristicas">
-      <img src="imagenes/wifi.jpg"> <h6>Wi-Fi gratuito</h6>
+      <img src="imagenes/wifi.png"> <h6>Wi-Fi gratuito</h6>
     </div>
 
     <div class="icons-caoracteristicas">
@@ -101,7 +101,23 @@
     </div>
   </div>
 </div>
+<!-- FOOTER -->
+<footer class="app-footer">
+  <img src="imagenes/logo_inicial.png" alt="Digital Move" class="footer-logo">
+
+  <p>Políticas de privacidad</p>
+  
+  <p>Términos de servicio</p>
+  
+  <p>Contáctanos</p>
+  <p>admin.transportes@demo.com</p>
+<div class="icons-caoracteristicas">
+  <img src="imagenes/facebook.png"onclick="abrirNotificaciones()">
+  <img src="imagenes/whatsapp.png"onclick="abrirNotificaciones()">
+</div>
+</footer>
 </section>
+
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
@@ -115,9 +131,99 @@
     .bindPopup('Universidad')
     .openPopup();
 
-  const marker2 = L.marker([25.78019, -100.18822]).addTo(map)
+  const marker2 = L.marker([25.782070, -100.188452]).addTo(map)
     .bindPopup('Apodaca')
     .openPopup();
+
+    
+</script>
+<script>
+const busIcon = L.icon({
+  iconUrl: 'imagenes/bus.png',   // 👈 tu imagen del bus
+  iconSize: [40, 40],
+  iconAnchor: [20, 20]
+});
+</script>
+<script>
+const rutaBus = [
+  [25.782070, -100.188452],
+  [25.777339046084773, -100.18546342681724],
+  [25.77724304494779, -100.18540557427062],
+  [25.77706001410322, -100.18549938493062],
+  [25.77693799337768, -100.1857026413611],
+  [25.776708030905258, -100.18591632119183],
+  [25.776539078599676, -100.18591632118326],
+  [25.77633258101655, -100.1857339115666],
+  [25.776304422227376, -100.18559319557662],
+  [25.776665792847748, -100.18516583590332],
+  [25.776754962052287, -100.18501469650667],
+  [25.777102251999636, -100.18433717507341],
+  [25.777183741038993, -100.18410227995463],
+  [25.777329758071037, -100.18369032470555],
+  [25.77740868612163, -100.18360705715519],
+  [25.777440257327157, -100.18350625959422],
+  [25.777538917290325, -100.18308553933986],
+  [25.77781121836716, -100.18209947620102],
+  [25.778201910126956, -100.18081978537268],
+  [25.778770186754098, -100.17901419422707],
+  [25.779097733859857, -100.17805880858324],
+  [25.77931478263808, -100.17746278822287],
+  [25.779531831019195, -100.17680979532801],
+  [25.779942248700394, -100.1754950444643],
+  [25.780569711443913, -100.17346594567519],
+  [25.78098801808928, -100.17211175235636],
+  [25.781319505342328, -100.17090218156595],
+  [25.78188382078734, -100.16909001664959],
+  [25.782580384536512, -100.16674731815023],
+  [25.783534679292135, -100.16373095420136],
+  [25.784918420392696, -100.15904702574925],
+  [25.786016774135938, -100.15547972224876],
+  [25.78725780207072, -100.15150335815213],
+  [25.78815040504533, -100.14852200637135],
+  [25.789086137757046, -100.14550380226348],
+  [25.790378610260245, -100.1411684755135],
+  [25.7926138849383, -100.13368666913321],
+  [25.79294237531795, -100.13239315311677],
+  [25.79360267141799, -100.13024097827852],
+  [25.793718803515098, -100.13019307027854],
+  [25.79383161744338, -100.13030731243236],
+  [25.793828299388203, -100.13043261027848],
+  [25.793410223692298, -100.131855109355],
+  [25.7930651442203, -100.13294225247317],
+  [25.7927996977911, -100.13373826234776],
+  [25.792696837137076, -100.1338709306885],
+  [25.791996718729358, -100.13622210795529],
+  [25.79207967136255, -100.13628107164759],
+  [25.799309600017253, -100.13801681540495],
+  [25.79938900656767, -100.13798254694412],
+  [25.8001234453002, -100.13620636146695],
+  [25.800165247948478, -100.13589527378339,],
+  [25.80045, -100.13580]
+  
+
+  
+];
+</script>
+<script>
+let busMarker = L.marker(rutaBus[0], {
+  icon: busIcon
+}).addTo(map);
+</script>
+<script>
+let paso = 0;
+
+function moverBus() {
+  paso++;
+
+  if (paso >= rutaBus.length) {
+    paso = 0; // vuelve a empezar
+  }
+
+  busMarker.setLatLng(rutaBus[paso]);
+}
+
+// mueve el bus cada 1.5 segundos
+setInterval(moverBus, 1500);
 </script>
 </body>
 </html>
